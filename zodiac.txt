@@ -1,5 +1,5 @@
 ** start of main.py **
-
+#To call this function, you should enter a date_str value as 'YYYY-MM-DD'
 import datetime as d
 def get_sign(date_str):    
     year, month, day = [int(i) for i in date_str.split("-")]
