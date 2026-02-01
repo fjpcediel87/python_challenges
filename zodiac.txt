@@ -1,0 +1,26 @@
+** start of main.py **
+
+import datetime as d
+def get_sign(date_str):    
+    year, month, day = [int(i) for i in date_str.split("-")]
+    date_ = d.date(year, month, day)
+    zodiac = [
+        (20, 'Aquarius'),
+        (19, 'Pisces'),
+        (21, 'Aries'),
+        (20,	"Taurus"),
+        (21, "Gemini"),
+        (21,   "Cancer"),
+        (23,	"Leo"),
+        (23,  "Virgo"),
+        (23, "Libra"),
+        (23, "Scorpio"),
+        (22, "Sagittarius"),
+        (22, "Capricorn")
+        ]
+    def ref(n):
+        return zodiac[(n - 1)% 12]
+    return ref(month)[1] if day >= ref(month)[0] else ref(month-1)[1]
+
+** end of main.py **
+
