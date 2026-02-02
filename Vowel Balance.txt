@@ -1,0 +1,18 @@
+** start of main.py **
+
+import re
+def is_balanced(s):
+    left = s[0:len(s) // 2]
+    if len(s) % 2:        
+        right = s[len(s)//2 + 1:]
+    else: 
+        right = s[len(s)//2:]
+    p = re.compile(r'[aeiou]', re.IGNORECASE)
+    vLeft = p.findall(left)
+    vRight = p.findall(right)
+    
+
+    return len(vLeft) == len(vRight)
+
+** end of main.py **
+
