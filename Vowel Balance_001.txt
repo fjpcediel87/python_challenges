@@ -1,18 +1,19 @@
 ** start of main.py **
-
-import re
+#No regex compilation - avoids overhead of pattern matching
+#O(n) with simple iteration vs regex engine overhead
+#Clearer logic - easier to understand at a glance
+#The string can contain any characters.
+#The letters a, e, i, o, and u, in either uppercase or lowercase, are considered vowels.
+#If there's an odd number of characters in the string, ignore the centre character.
 def is_balanced(s):
-    left = s[0:len(s) // 2]
-    if len(s) % 2:        
-        right = s[len(s)//2 + 1:]
-    else: 
-        right = s[len(s)//2:]
-    p = re.compile(r'[aeiou]', re.IGNORECASE)
-    vLeft = p.findall(left)
-    vRight = p.findall(right)
+    mid = len(s) // 2
+    left = s[:mid]
+    right = s[mid + len(s) % 2:]
     
-
-    return len(vLeft) == len(vRight)
+    vowels = 'aeiouAEIOU'
+    count_vowels = lambda text: sum(1 for c in text if c in vowels)
+    
+    return count_vowels(left) == count_vowels(right)
 
 ** end of main.py **
 
