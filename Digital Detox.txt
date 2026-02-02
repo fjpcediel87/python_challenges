@@ -1,0 +1,31 @@
+** start of main.py **
+
+#You have met your digital detox goal if both of the following statements are true:
+
+#You logged in no more than once within any four-hour period.
+#You logged in no more than 2 times on any single day.
+#digital_detox(["2026-02-05 10:00:00", "2026-02-01 09:00:00", "2026-02-03 22:15:00", "2026-02-02 12:10:00", "2026-02-02 07:15:00", "2026-02-04 09:45:00", "2026-02-01 16:50:00", "2026-02-03 09:30:00"]) return True
+#digital_detox(["2026-01-31 10:40:21", "2026-01-31 15:19:41", "2026-01-31 21:49:50", "2026-02-01 09:30:00"]) return False
+import datetime as d
+def digital_detox(array):
+    period = 1000 * 60 * 60 * 4 # 4 hours in milliseconds
+    path = []
+    count = []
+    unsortedArray = [ d.datetime.fromisoformat(i.replace(' ', '-')) for i in array ]
+    sortedArray = sorted(unsortedArray)
+    for i in sortedArray:
+        daylog = d.date(i.year, i.month, i.day)
+        if not daylog in path:
+            path.append(daylog)
+            count.append(1)            
+        else:
+            count[path.index(daylog)] += 1      
+    
+    diffArray = [ (sortedArray[i+1] - sortedArray[i]).total_seconds() * 1000 - period for i in range(len(sortedArray)-1) ]
+    minDiff = min(diffArray)
+    maxCount = max(count)
+    
+    return minDiff > 0 and maxCount <= 2
+
+** end of main.py **
+
