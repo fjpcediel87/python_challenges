@@ -1,0 +1,8 @@
+** start of main.py **
+
+def mirror(s):
+    return s + s[::-1] #Much simpler
+print(mirror("freeCodeCamp"))
+
+** end of main.py **
+
