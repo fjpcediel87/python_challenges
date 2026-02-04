@@ -1,0 +1,11 @@
+** start of main.py **
+
+def is_valid_number(n, base):
+    try:
+        return bool(int(n, base))
+    except:
+        return False
+
+
+** end of main.py **
+
