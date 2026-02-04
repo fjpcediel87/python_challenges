@@ -1,0 +1,10 @@
+** start of main.py **
+
+def mirror(s):
+    revString = "".join([ list(s)[i] for i in range(len(s)-1,-1,-1)])
+
+    return s+revString
+print(mirror("freeCodeCamp"))
+
+** end of main.py **
+
