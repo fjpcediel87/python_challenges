@@ -1,13 +1,10 @@
 ** start of main.py **
 
 def fibonacci_sequence(start_sequence, length):
-    arr = start_sequence
-    if not length:
-        return []
-    if length > 2:
-        for i in range(2, length + 1):
-            arr += [arr[i-2] + arr[i-1] ]
-    return arr[0: length]
+    arr = start_sequence[:length] #This change will avoid compute data unnecessarily
+    while len(arr) < length:
+        arr.append(arr[-2] + arr[-1])
+    return arr
 
 print(fibonacci_sequence([123456789, 987654321], 5))
 
