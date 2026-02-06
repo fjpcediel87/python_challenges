@@ -1,0 +1,8 @@
+** start of main.py **
+
+def count_change(change):
+    return f'${sum(change)/100:.2f}'
+print(count_change([25, 10, 5, 1]))
+
+** end of main.py **
+
