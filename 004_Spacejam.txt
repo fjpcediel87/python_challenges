@@ -1,7 +1,14 @@
 ** start of main.py **
+def space_jam(s: str) -> str:
+    """Return `s` uppercased with spaces removed and characters separated by two spaces.
 
-def space_jam(s):
-    return '  '.join(list(s.replace(' ','').upper()))
+    Examples:
+    >>> space_jam('I love you')
+    'I  L  O  V  E  Y  O  U'
+    """
+    if not isinstance(s, str):
+        s = str(s)
+    return '  '.join(s.replace(' ', '').upper()) #list() was not necessary
 print(space_jam("freeCodeCamp"))
 
 ** end of main.py **
