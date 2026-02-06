@@ -1,0 +1,8 @@
+** start of main.py **
+
+def space_jam(s):
+    return '  '.join(list(s.replace(' ','').upper()))
+print(space_jam("freeCodeCamp"))
+
+** end of main.py **
+
