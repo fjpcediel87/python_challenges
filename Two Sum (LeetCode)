@@ -1,0 +1,9 @@
+# I took @jakesully solution and remade it on Python, I got runtime of 0ms and beated 100% of python solutions. 
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+            seen = {}
+            for i in range(len(nums)):
+                if seen.get(nums[i],-1) >=0:
+                    return [i, seen.get(nums[i])]
+                seen[target - nums[i]] = i
+            return []
